@@ -65,6 +65,7 @@ class Character {
     int getHp() {return hp;}
     int getMana() {return mana;}
     int getStr() {return str;}
+    int getDamage() {return damage+str;}
     double getAgi() {return agi;}
     Equipment[] getEquipments(Equipment[] equipment) {return equipment;}
 
@@ -153,26 +154,32 @@ class Character {
     public void displayEquipmentInfo() {
         Equipment[] acc = getEquipments(accessory);
         Equipment[] wpn = getEquipments(weapon);
+    
         System.out.println("=== Accessory Info ===");
-        for (Equipment item : acc) {
-            if (acc != null) {
-                item.getWeaponInfo();
-            } else {
-                System.out.println("No equipped.");
+        if (accessory != null) {
+            for (Equipment item : acc) {
+                if (item != null) {
+                    item.getWeaponInfo();
+                }
             }
+        } else {
+            System.out.println("No equipped.");
         }
-        System.out.println("======================\n");
-
-        System.out.println("=== Weapon Info ===");
-        for (Equipment item : wpn ) {
-            if (item != null) {
-                item.getWeaponInfo();
-            } else {
-                System.out.println("No equipped.");
-            }
+        System.out.println("\n");
+    
+        if (weapon != null) {
+            System.out.println("=== Weapon Info ===");
+            for (Equipment item : wpn) {
+                if (item != null) {
+                    item.getWeaponInfo();
+                } else {
+                    System.out.println("No equipped.");
+                }
+                }
         }
-        System.out.println("======================");
+        System.out.println("\n");
     }
+    
 
     public void displayCharacterInfo() {
         System.out.println("=== Character Info ===");
@@ -184,9 +191,11 @@ class Character {
         System.out.println("Mana: " + mana);
         System.out.println("ASPD: " + agi*2);
         System.out.println("Run Speed: " + runSpeed);
-        System.out.println("Damage: " + damage);
+        System.out.println("Damage: " + (damage+str));
         System.out.println("Shield: " + shield);
         System.out.println("Weight: " + totalWeight);
+        System.out.println("\n");
+
     }
     
 

@@ -24,7 +24,7 @@ class Action {
         public Attack(Character attacker, Character defender) {
             this.attacker = attacker;
             this.defender = defender;
-            this.damage = attacker.getStr();
+            this.damage = attacker.getDamage();
         }
 
         public void executeAttack() {

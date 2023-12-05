@@ -21,7 +21,7 @@ class Equipment {
     public static Equipment A001 = new Equipment("Accessory", "Ring of Strength", 1, 0, 1, 50, 0, 0);
     public static Equipment A002 = new Equipment("Accessory", "Ring of Speed", 1, 0, 1, 0, 20, 0);
     public static Equipment A003 = new Equipment("Accessory", "Ring of Mana", 1, 0, 1, 0, 0, 100);
-    public static Equipment A004 = new Equipment("Accessory", "Ring of one of all", 1, 0, 1, 100, 20, 50);    
+    public static Equipment A004 = new Equipment("Accessory", "Ring of all", 1, 0, 1, 100, 20, 50);    
 
     public Equipment(String type, String name, int level, int dmgOrRdmg, int weight, int bonusHp, int bonusSpeed, int bonusMana) {
         this.name = name;
