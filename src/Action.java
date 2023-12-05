@@ -1,21 +1,13 @@
 class Action {
+    private static boolean isDefend = false;
     static class Defend{
         Character defender;
-        int damage;
-        int shield;
-        public Defend(Character defender,int damage){
+        public Defend(Character defender){
             this.defender = defender;
-            this.damage = damage;
-            this.shield = defender.getShield();
         }
 
-        public void defendAttack(){
-            int currShield = defender.getShield();
-            int newShield = currShield - damage;
-
-             if(newShield <= 0) { newShield = 0;}
-            defender.setShield(newShield);
-
+        public boolean defendAttack(){
+            return isDefend = true;
         }
     }
     static class Attack {
@@ -23,25 +15,31 @@ class Action {
         Character defender;
         int damage;
         int shield;
+        int hp;
         
         public Attack(Character attacker, Character defender) {
             this.attacker = attacker;
             this.defender = defender;
             this.damage = attacker.getDamage();
+            this.hp = defender.getHp();
+            this.shield = defender.getShield();
         }
         
         public void takeDamage(int damage){
-            int currHp = defender.getHp();
-            int newHp = currHp - damage;
-    
-            if(newHp <= 0) { newHp = 0;}
-            defender.setHp(newHp);
+            if(isDefend){
+                if(defender.getShield() - damage <= 0){
+                    hp = hp + shield - damage;
+                    defender.setHp(hp);
+                    defender.setShield(0);
+                }else{
+                    shield = shield - damage;
+                    defender.setShield(shield);
+                }
+            }
         }
 
         public void executeAttack() {
-            if(defender.getShield() == 0){
-                takeDamage(damage);
-            }
+            takeDamage(damage);
         }
     }
 }

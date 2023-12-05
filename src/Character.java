@@ -45,19 +45,7 @@ class Character {
     }
     
     // max on lv.99
-    void levelUp() {
-        if(level <= 99){
-            level++;
-            hp = 40 + 5*level;
-            mana = 20 + 5*level;
-            str = 1 + 5*level;
-            agi = 34 + 2*level;
-            if(agi >= 100){
-                agi = 100;
-            }
-        }
-    }
-
+    
     String getName() {return name;}
     String getGender() {return gender;}
     String getJob() {return job;}
@@ -69,7 +57,19 @@ class Character {
     int getDamage() {return damage+str;}
     double getAgi() {return agi;}
     Equipment[] getEquipments(Equipment[] equipment) {return equipment;}
-
+    
+    public void levelUp() {
+        if(level <= 99){
+            level++;
+            hp = 40 + 5*level;
+            mana = 20 + 5*level;
+            str = 1 + 5*level;
+            agi = 34 + 2*level;
+            if(agi >= 100){
+                agi = 100;
+            }
+        }
+    }
     public void setDamage(){
         if(weapon[0] != null){
             damage += weapon[0].getDamage();
@@ -164,10 +164,10 @@ class Character {
             for (Equipment item : acc) {
                 if (item != null) {
                     item.getWeaponInfo();
+                } else {
+                    System.out.println("No equipped.");
                 }
             }
-        } else {
-            System.out.println("No equipped.");
         }
         System.out.println("\n");
     
@@ -179,7 +179,7 @@ class Character {
                 } else {
                     System.out.println("No equipped.");
                 }
-                }
+            }
         }
         System.out.println("\n");
     }
@@ -199,14 +199,17 @@ class Character {
         System.out.println("Shield: " + shield);
         System.out.println("Weight: " + totalWeight);
         System.out.println("\n");
-
-    }
     
+}
 
-    void displayInfo() {
+
+void displayInfo() {
+    if(hp == 0){
+        System.out.println(name + ": ARE DEAD!!\n");
+    }else{
         displayCharacterInfo();
         displayEquipmentInfo();
     }
 
-    
+}
 }
