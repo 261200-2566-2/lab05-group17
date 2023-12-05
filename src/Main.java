@@ -155,12 +155,14 @@ public class Main {
     //     scanner.close();
 
     Character player1 = new Character("Somchai", "Female", "Novice");
-    Character player2 = new Character("Sommark", "Male", "Mage");
-    Action.Attack attack = new Action.Attack(player1, player2);
+    Character player2 = new Character("Sommark", "Male", "Novice");
+    Action.Attack attack = new Action.Attack(player2, player1);
+    Action.Defend defend = new Action.Defend(player1, player2.getDamage());
     player1.displayInfo();
     player2.displayInfo();
 
     attack.executeAttack();
+    defend.defendAttack();
     player1.displayInfo();
     player2.displayInfo();
 

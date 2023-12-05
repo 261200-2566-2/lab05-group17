@@ -65,6 +65,7 @@ class Character {
     int getHp() {return hp;}
     int getMana() {return mana;}
     int getStr() {return str;}
+    int getShield() {return shield;}
     int getDamage() {return damage+str;}
     double getAgi() {return agi;}
     Equipment[] getEquipments(Equipment[] equipment) {return equipment;}
@@ -78,6 +79,9 @@ class Character {
         if(weapon[1] != null){
             shield += weapon[1].getReduceDamage();
         }
+    }
+    public void setShield(int newShield){
+        shield = newShield;
     }
 
     public void setHp(int newHp){
