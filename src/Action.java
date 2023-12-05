@@ -35,6 +35,13 @@ class Action {
                     shield = shield - damage;
                     defender.setShield(shield);
                 }
+            }else{
+                hp = hp - damage;
+                if(hp <= 0){
+                    defender.setHp(0);
+                }else{
+                    defender.setHp(hp);
+                }
             }
         }
 
