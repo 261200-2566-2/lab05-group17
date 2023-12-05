@@ -14,13 +14,9 @@ class Character {
     private Equipment[] weapon = new Equipment[2];
     private Equipment[] accessory = new Equipment[2];
     
-    public Character(String name, String gender) {
+    public Character(String name, String gender , String job) {
         this.name = name;
         this.gender = gender;
-
-    }
-
-    public void setJobStatus(String job) {
         this.job = job;
         if ("Novice".equals(job)) {
             this.level = 1;
@@ -45,8 +41,9 @@ class Character {
             this.agi = 0;
             this.shield = 1; 
         }
-    }
 
+    }
+    
     // max on lv.99
     void levelUp() {
         if(level <= 99){
@@ -69,8 +66,7 @@ class Character {
     int getMana() {return mana;}
     int getStr() {return str;}
     double getAgi() {return agi;}
-
-    Equipment[] getWeapons() {return weapon;}
+    Equipment[] getEquipments(Equipment[] equipment) {return equipment;}
 
     public void setDamage(){
         if(weapon[0] != null){
@@ -154,11 +150,23 @@ class Character {
         }
     }
 
-    public void displayAccessoryInfo() {
+    public void displayEquipmentInfo() {
+        Equipment[] acc = getEquipments(accessory);
+        Equipment[] wpn = getEquipments(weapon);
         System.out.println("=== Accessory Info ===");
-        for (Equipment acc : accessory) {
+        for (Equipment item : acc) {
             if (acc != null) {
-                acc.getWeaponInfo();
+                item.getWeaponInfo();
+            } else {
+                System.out.println("No equipped.");
+            }
+        }
+        System.out.println("======================\n");
+
+        System.out.println("=== Weapon Info ===");
+        for (Equipment item : wpn ) {
+            if (item != null) {
+                item.getWeaponInfo();
             } else {
                 System.out.println("No equipped.");
             }
@@ -179,21 +187,12 @@ class Character {
         System.out.println("Damage: " + damage);
         System.out.println("Shield: " + shield);
         System.out.println("Weight: " + totalWeight);
-        System.out.println("=== Weapon Info ===");
-    
-        for (Equipment w : weapon ) {
-            if (w != null) {
-                w.getWeaponInfo();
-            } else {
-                System.out.println("No equipped.");
-            }
-        }
     }
     
 
     void displayInfo() {
         displayCharacterInfo();
-        displayAccessoryInfo();
+        displayEquipmentInfo();
     }
 
     

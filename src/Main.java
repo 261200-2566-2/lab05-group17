@@ -5,6 +5,7 @@ public class Main {
         System.out.print("Enter character name: ");
         String name = scanner.nextLine();
         String gender = null;
+        String job = null;
         int genderChoice;
         
         do {
@@ -20,29 +21,30 @@ public class Main {
             }
         } while (genderChoice != 1 && genderChoice != 2);
         
-        Character player = new Character(name, gender);
-
+        
         System.out.println("Choose a job:");
         System.out.println("1. Novice");
         System.out.println("2. Swordman");
         System.out.println("3. Mage");
         
         int jobChoice ;
-
-         do {
+        
+        do {
             System.out.print("Enter weapon choice (1, 2, or 3): ");
             jobChoice = scanner.nextInt();
             if (jobChoice == 1) {
-                player.setJobStatus("Novice");
+                job = "Novice";
             } else if (jobChoice == 2) {
-                player.setJobStatus("Swordman");
+                job = "Swordman";
             } else if (jobChoice == 3) {
-                player.setJobStatus("Mage");
+                job = "Mage";
             } else {
                 System.out.println("Incorrect choice. Please enter a valid choice.");
             }
         } while (jobChoice < 1 || jobChoice > 3);
-
+        
+        // create character from name gender and job input
+        Character player = new Character(name, gender , job);
         player.displayInfo();
 
         System.out.println("\nChoose a starting weapon:");

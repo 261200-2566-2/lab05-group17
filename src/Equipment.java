@@ -28,13 +28,7 @@ class Equipment {
         this.level = level;
         this.type = type.toLowerCase();
         
-        if(this.type.equals("sword")){
-            this.damage = dmgOrRdmg * (2 + level);
-        }
-        if(this.type.equals("dagger")){
-            this.damage = dmgOrRdmg * (2 + level);
-        }
-        if(this.type.equals("wand")){
+        if(this.type.equals("sword") || this.type.equals("dagger") || this.type.equals("wand")){
             this.damage = dmgOrRdmg * (2 + level);
         }
         if(this.type.equals("shield")){
@@ -86,15 +80,7 @@ class Equipment {
             System.out.println("Name: " + name + "\tLevel: " + level + "\tReduces Damage: " 
             + reducesDamage + "\tWeight: " + weight);
         }
-        if("dagger".equals(type)){
-            System.out.println("Name: " + name + "\tLevel: " + level + "\tDamage: " 
-            + damage + "\tWeight: " + weight + "\tBounsHp: " + bonusHp + "\tBounsSpeed: " + bonusSpeed + "\tBonseMana: " + bonusMana);
-        }
-        if("wand".equals(type)){
-            System.out.println("Name: " + name + "\tLevel: " + level + "\tDamage: " 
-            + damage + "\tWeight: " + weight + "\tBounsHp: " + bonusHp + "\tBounsSpeed: " + bonusSpeed + "\tBonseMana: " + bonusMana);
-        }
-        if("accessory".equals(type)){
+        if("dagger".equals(type) || "wand".equals(type) || "accessory".equals(type)){
             System.out.println("Name: " + name + "\tLevel: " + level + "\tDamage: " 
             + damage + "\tWeight: " + weight + "\tBounsHp: " + bonusHp + "\tBounsSpeed: " + bonusSpeed + "\tBonseMana: " + bonusMana);
         }
