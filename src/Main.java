@@ -45,7 +45,6 @@ public class Main {
         
         // create character from name gender and job input
         Character player = new Character(name, gender , job);
-        player.displayInfo();
 
         System.out.println("\nChoose a starting weapon:");
         System.out.println("1. " + Equipment.W001.getName());
