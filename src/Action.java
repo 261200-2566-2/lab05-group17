@@ -30,7 +30,6 @@ class Action {
         public void executeAttack() {
             Defend defend = new Defend(defender, damage);
             defend.takeDamage(damage);
-            System.out.println(attacker.getName() + " attacks " + defender.getName() + " for " + damage + " damage!");
         }
     }
 }
