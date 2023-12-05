@@ -26,23 +26,27 @@ class Action {
         }
         
         public void takeDamage(int damage){
+            hp = hp - damage;
             if(isDefend){
-                if(defender.getShield() - damage <= 0){
-                    hp = hp + shield - damage;
+                if(shield - damage <= 0){
+                    hp = hp + shield;
                     defender.setHp(hp);
                     defender.setShield(0);
+                    if(hp <= 0){
+                        defender.setHp(0);
+                    }
                 }else{
                     shield = shield - damage;
                     defender.setShield(shield);
                 }
             }else{
-                hp = hp - damage;
                 if(hp <= 0){
                     defender.setHp(0);
                 }else{
                     defender.setHp(hp);
                 }
             }
+            
         }
 
         public void executeAttack() {

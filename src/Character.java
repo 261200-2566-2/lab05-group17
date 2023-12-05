@@ -204,7 +204,7 @@ class Character {
 
 
 void displayInfo() {
-    if(hp == 0){
+    if(hp <= 0){
         System.out.println(name + ": ARE DEAD!!\n");
     }else{
         displayCharacterInfo();
