@@ -14,7 +14,7 @@ public class Main {
     player1.displayInfo();
     player2.displayInfo();
 
-    //defend.defendAttack();
+    defend.defendAttack();
     attack.executeAttack();
     player1.displayInfo();
     player2.displayInfo();
